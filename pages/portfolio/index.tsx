@@ -1,13 +1,10 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
-import { imageAsset } from "@/public";
 import Image from "next/image";
 import { dataOtherProjects, dataProjects } from "@/data/data";
 import { DataProjects } from "@/types";
 import Link from "next/link";
-import { useRef } from "react";
-import { useMousePosition } from "@/components/UseMousePosition";
 
 const Work = () => {
   return (
@@ -70,6 +67,8 @@ const Work = () => {
                     className="h-full w-full rounded-md bg-cover shadow-lg shadow-black"
                     src={item.image}
                     alt={item.title}
+                    width={700}
+                    height={700}
                   />
                 </div>
                 <div className="mt-5 flex flex-col items-center justify-center gap-y-2">
@@ -159,6 +158,8 @@ const CardProject = ({
             className="h-auto w-96 rounded-md bg-cover shadow-md shadow-black"
             src={image}
             alt={title}
+            width={700}
+            height={700}
           />
           <div className="absolute left-0 top-0 h-full w-full rounded-md bg-black bg-opacity-50 md:hidden">
             <div className="p-5">

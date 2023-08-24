@@ -1,7 +1,5 @@
 import AboutWidget from "@/components/Experience";
-import { useMousePosition } from "@/components/UseMousePosition";
 import { dataEducation, dataExperience } from "@/data/data";
-import { imageAsset } from "@/public";
 import { fadeIn } from "@/variants";
 import { motion } from "framer-motion";
 import Head from "next/head";
@@ -17,18 +15,18 @@ const About = () => {
         <meta name="This is about page" content="This is about page" />
       </Head>
       <main className="h-full">
-        <div className="flex flex-col items-center justify-center h-3/6 pt-48">
-          <div className="grid w-full grid-cols-2  md:grid-cols-8 gap-16 container">
+        <div className="flex h-3/6 flex-col items-center justify-center pt-48">
+          <div className="container grid w-full  grid-cols-2 gap-16 md:grid-cols-8">
             <div className="col-span-5 flex flex-col items-start justify-start">
               <motion.div
                 variants={fadeIn("down", 0.2)}
                 initial="hidden"
                 animate="show"
                 exit="hidden"
-                className="flex w-full items-center mb-5"
+                className="mb-5 flex w-full items-center"
               >
                 <h2 className="text-5xl text-secondary">About Me</h2>
-                <div className=" flex-1 h-px ml-5 bg-tertiary" />
+                <div className=" ml-5 h-px flex-1 bg-tertiary" />
               </motion.div>
               <motion.p
                 variants={fadeIn("down", 0.4)}
@@ -55,7 +53,7 @@ const About = () => {
                 recently:
                 <br />
                 <br />
-                <ul className="grid grid-cols-2 gap-4 custom-list">
+                <ul className="custom-list grid grid-cols-2 gap-4">
                   <li>JavaScript (ES6+)</li>
                   <li>Typescript</li>
                   <li>React</li>
@@ -74,18 +72,20 @@ const About = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="col-span-3 relative h-max group"
+              className="group relative col-span-3 h-max"
             >
-              <div className="relative top-0 left-0 group-hover:-top-2 group-hover:-left-2  transition-all duration-300">
-                <div className="absolute hidden md:flex w-full md:h-[210px] lg:h-[275px] xl:h-[354px] bg-accent group-hover:bg-accent/0 opacity-20 z-20 rounded-md top-0 left-0" />
+              <div className="relative left-0 top-0 transition-all duration-300  group-hover:-left-2 group-hover:-top-2">
+                <div className="absolute left-0 top-0 z-20 hidden w-full rounded-md bg-accent opacity-20 group-hover:bg-accent/0 md:flex md:h-[210px] lg:h-[275px] xl:h-[354px]" />
                 <Image
-                  className="w-60 md:w-full h-auto rounded-md z-10 relative"
-                  src={imageAsset.profileImg}
+                  className="relative z-10 h-auto w-60 rounded-md md:w-full"
+                  src={"/profile_image.png"}
                   alt="Muhammad Adhika Adhiwijna"
+                  width={700}
+                  height={700}
                 />
               </div>
 
-              <div className="absolute w-full hidden md:block md:h-[210px] lg:h-[275px] xl:h-[350px] z-0 rounded-md border-2 border-accent top-3 left-3 group-hover:top-5 group-hover:right-5  transition-all duration-300" />
+              <div className="absolute left-3 top-3 z-0 hidden w-full rounded-md border-2 border-accent transition-all duration-300 group-hover:right-5 group-hover:top-5 md:block md:h-[210px]  lg:h-[275px] xl:h-[350px]" />
             </motion.div>
           </div>
         </div>

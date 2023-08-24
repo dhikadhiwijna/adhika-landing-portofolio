@@ -24,7 +24,7 @@ interface DataProjects {
   index: number;
   title: string;
   link: string | null;
-  image: StaticImageData;
+  image: string;
   description: string;
   tech: string[];
 }

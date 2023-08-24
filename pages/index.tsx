@@ -2,7 +2,6 @@ import ParticlesContainer from "@/components/ParticlesContainer";
 import ProjectsBtn from "@/components/ProjectsBtn";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
-import { useEffect, useState } from "react";
 import { useMousePosition } from "@/components/UseMousePosition";
 import Head from "next/head";
 

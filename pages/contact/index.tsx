@@ -1,9 +1,6 @@
 import { fadeIn } from "@/variants";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
-import axios from "axios";
-import { useMousePosition } from "@/components/UseMousePosition";
 import Head from "next/head";
 import ParticlesContainer from "@/components/ParticlesContainer";
 
