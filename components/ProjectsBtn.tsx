@@ -1,3 +1,4 @@
+import { imageAsset } from "@/public";
 import Image from "next/image";
 import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi";
@@ -10,7 +11,7 @@ const ProjectsBtn = () => {
         className="group relative flex h-[185px] w-[185px] items-center justify-center bg-circleStar bg-cover bg-center bg-no-repeat"
       >
         <Image
-          src={"/rounded-text.png"}
+          src={imageAsset.roundedText}
           width={141}
           height={148}
           alt=""

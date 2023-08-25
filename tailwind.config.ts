@@ -1,10 +1,10 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     container: {
@@ -28,7 +28,6 @@ const config: Config = {
       backgroundImage: {
         circles: 'url("../public/bg-circles.png")',
         circleStar: 'url("../public/circle-star.svg")',
-        site: 'url("../public/site-bg.svg")',
       },
       animation: {
         "spin-slow": "spin 6s linear infinite",
@@ -45,5 +44,5 @@ const config: Config = {
     },
   },
   plugins: [require("tailwind-scrollbar")],
-}
-export default config
+};
+export default config;

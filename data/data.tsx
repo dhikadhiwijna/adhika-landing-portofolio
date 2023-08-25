@@ -1,3 +1,5 @@
+import { imagePageAsset } from "@/public";
+
 export const dataExperience = [
   {
     position: "Software Engineer - Frontend",
@@ -61,7 +63,7 @@ export const dataProjects = [
   {
     title: "GPOS Lite",
     link: "https://www.gpos.id/aplikasi-apotek-terbaik/",
-    image: "/page/gpos-page.png",
+    image: imagePageAsset.gposPage,
     description:
       "A mobile application that helps the user to manage their pharmacy business like drug store management, sales transaction, and financial reports.",
     tech: ["Flutter", "Firebase", "ReactJS", "NextJS", "Bootstrap", "jQuery"],
@@ -77,7 +79,7 @@ export const dataProjects = [
   {
     title: "Ayovest",
     link: "https://www.ayovest.id/",
-    image: "/page/ayovest-page.png",
+    image: imagePageAsset.ayovestPage,
     description:
       "A mobile application that helps the user to manage their investment portfolio and financial planning. This application also provides a feature to buy and sell mutual funds.",
     tech: ["Flutter", "Bloc", "Dio", "Laravel"],
@@ -85,7 +87,7 @@ export const dataProjects = [
   {
     title: "Funtravia",
     link: "https://funtravia.com/",
-    image: "/page/funtravia-page.png",
+    image: imagePageAsset.funtraviaPage,
     description:
       "A web application that provides travel services. Create itinerary, book hotels, buy tickets, and social media. The chat feature is also available to communicate with other users.",
     tech: ["React Native", "Redux", "Laravel", "MySQL", "ExpressJS", "GraphQL"],
@@ -93,7 +95,7 @@ export const dataProjects = [
   {
     title: "Dashboard Altros ERP",
     link: null,
-    image: "/page/dashboard-altros-page.png",
+    image: imagePageAsset.dashboardAltrosPage,
     description:
       "A web application that helps the user to manage their business like sales transaction, financial reports, and inventory management.",
     tech: ["ReactJS", "Bootstrap", "Laravel", "MySQL"],
@@ -104,7 +106,7 @@ export const dataOtherProjects = [
   {
     title: "Aerosoft Digital Agency",
     link: "https://master.d18sdo572xqm5j.amplifyapp.com/",
-    image: "/page/aerosoft-page.png",
+    image: imagePageAsset.aerosoftPage,
     description:
       "A landing page for Aerosoft web application. A digital agency that provides services for website development, mobile application development, and digital marketing.",
     tech: ["NextJS", "TailwindCSS"],
@@ -112,7 +114,7 @@ export const dataOtherProjects = [
   {
     title: "Funtravia Landing Page",
     link: "https://main.d1bs1cto9i24pu.amplifyapp.com/",
-    image: "/page/funtravia-page.png",
+    image: imagePageAsset.funtraviaPage,
     description:
       "A landing page for Funtravia web application. This application is meant to encourage users to download the Funtravia application. This landing page is built using NextJS and TailwindCSS. ",
     tech: ["NextJS", "TailwindCSS"],
@@ -120,7 +122,7 @@ export const dataOtherProjects = [
   {
     title: "Big Coco Global ",
     link: "https://master.d1g8zibujt5qjx.amplifyapp.com/",
-    image: "/page/bigcoco-page.png",
+    image: imagePageAsset.bigcocoPage,
     description:
       "A lading page to promote Big Coco Global. This company is exporting coconut products to the world.",
     tech: ["ReactJS", "Styled Components"],

@@ -1,5 +1,6 @@
 import AboutWidget from "@/components/Experience";
 import { dataEducation, dataExperience } from "@/data/data";
+import { imageAsset } from "@/public";
 import { fadeIn } from "@/variants";
 import { motion } from "framer-motion";
 import Head from "next/head";
@@ -78,7 +79,7 @@ const About = () => {
                 <div className="absolute left-0 top-0 z-20 hidden w-full rounded-md bg-accent opacity-20 group-hover:bg-accent/0 md:flex md:h-[210px] lg:h-[275px] xl:h-[354px]" />
                 <Image
                   className="relative z-10 h-auto w-60 rounded-md md:w-full"
-                  src={"/profile_image.png"}
+                  src={imageAsset.profileImage}
                   alt="Muhammad Adhika Adhiwijna"
                   width={700}
                   height={700}
