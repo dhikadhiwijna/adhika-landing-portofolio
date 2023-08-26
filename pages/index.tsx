@@ -26,8 +26,8 @@ const Home = () => {
         <link rel="apple-touch-icon" href="/static/favicon.ico" />
         <meta name="This is home page" content="This is home page" />
       </Head>
-      <div className="h-full bg-primary/60">
-        <div className="h-screen w-full">
+      <div className="h-screen bg-primary/60">
+        <div className="h-full  w-full overflow-hidden">
           {!isMobile && (
             <motion.div
               variants={variants}
@@ -104,7 +104,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 right-0 h-full w-[1200px]">
+        <div className="absolute bottom-0 right-0 h-full w-full xl:w-[1200px]">
           <ParticlesContainer />
         </div>
       </div>
