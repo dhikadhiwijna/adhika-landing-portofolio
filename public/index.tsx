@@ -3,7 +3,6 @@ import ayovestPage from "@/public/image/ayovest-page.webp";
 import bigcocoPage from "@/public/image/bigcoco-page.webp";
 import dashboardAltrosPage from "@/public/image/dashboard-altros-page.webp";
 import funtraviaPage from "@/public/image/funtravia-page.webp";
-import gposMobilePage from "@/public/image/gpos-mobile-page.webp";
 import gposPage from "@/public/image/gpos-page.webp";
 
 export const imagePageAsset = {
@@ -12,7 +11,6 @@ export const imagePageAsset = {
   bigcocoPage,
   dashboardAltrosPage,
   funtraviaPage,
-  gposMobilePage,
   gposPage,
 };
 

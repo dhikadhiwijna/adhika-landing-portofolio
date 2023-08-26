@@ -5,8 +5,27 @@ import Image from "next/image";
 import { dataOtherProjects, dataProjects } from "@/data/data";
 import { DataProjects } from "@/types";
 import Link from "next/link";
+import { useMediaQuery } from "usehooks-ts";
+import { useAnalytics } from "@/data/firebase-config";
+import { logEvent } from "firebase/analytics";
+import { BiLinkExternal } from "react-icons/bi";
 
 const Work = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const analytics = useAnalytics();
+
+  const handleLinkClick = (link: string, value: number) => {
+    logEvent(analytics, "view_item", {
+      items: [
+        {
+          item_id: value.toString(),
+          item_name: link,
+          item_category: "link",
+        },
+      ],
+    });
+  };
+
   return (
     <>
       <Head>
@@ -34,20 +53,34 @@ const Work = () => {
             exit="hidden"
             className="container flex h-full flex-col"
           >
-            {dataProjects.map((item, index) => (
-              <CardProject
-                key={index}
-                title={item.title}
-                description={item.description}
-                image={item.image}
-                link={item.link}
-                tech={item.tech}
-                index={index}
-              />
-            ))}
+            {dataProjects.map((item, index) => {
+              return isMobile ? (
+                <MobileCardProject
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                  image={item.image}
+                  link={item.link}
+                  tech={item.tech}
+                  index={index}
+                  onClick={() => handleLinkClick(item.title, index)}
+                />
+              ) : (
+                <WebCardProject
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                  image={item.image}
+                  link={item.link}
+                  tech={item.tech}
+                  index={index}
+                  onClick={() => handleLinkClick(item.title, index)}
+                />
+              );
+            })}
           </motion.div>
 
-          <div className="container flex items-center">
+          <div className="container flex items-center pt-20">
             <h2 className="text-3xl text-secondary">
               Other Noteworthy Project
             </h2>
@@ -55,45 +88,16 @@ const Work = () => {
           </div>
           <div className="container mb-40 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             {dataOtherProjects.map((item, index) => (
-              <motion.div
-                initial={{ y: 50 }}
-                whileInView={{ y: 0 }}
-                transition={{ duration: 0.5, type: "spring" }}
-                className="flex h-full flex-col items-center justify-center p-5"
+              <MobileCardProject
                 key={index}
-              >
-                <div className="w-full rounded-md bg-black shadow-sm shadow-black">
-                  <Image
-                    className="h-full w-full rounded-md bg-cover shadow-lg shadow-black"
-                    src={item.image}
-                    alt={item.title}
-                    width={700}
-                    height={700}
-                  />
-                </div>
-                <div className="mt-5 flex flex-col items-center justify-center gap-y-2">
-                  <Link
-                    href={item.link}
-                    target="_blank"
-                    className="text-xl text-secondary transition-all duration-300 hover:text-accent"
-                  >
-                    {item.title}
-                  </Link>
-                  <p className="text-center text-tertiary">
-                    {item.description}
-                  </p>
-                  <ul className="flex flex-wrap justify-center gap-2">
-                    {item.tech.map((items, indexTech) => (
-                      <li
-                        className="rounded-xl border-accent bg-accent/20 px-3 py-1 text-center text-sm text-accent"
-                        key={indexTech}
-                      >
-                        {items}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
+                title={item.title}
+                description={item.description}
+                image={item.image}
+                link={item.link}
+                tech={item.tech}
+                index={index}
+                onClick={() => handleLinkClick(item.title, index)}
+              />
             ))}
           </div>
         </div>
@@ -104,14 +108,13 @@ const Work = () => {
 
 export default Work;
 
-// Card Project Widget
-const CardProject = ({
+const WebCardProject = ({
   title,
   description,
   image,
   link,
   tech,
-  index,
+  onClick,
 }: DataProjects) => {
   return (
     <div className="my-5 h-full">
@@ -124,19 +127,20 @@ const CardProject = ({
             {link !== null ? (
               <Link
                 href={link}
-                className="text-xl text-white transition-all duration-300 hover:text-accent"
+                className="flex items-center text-xl text-white transition-all duration-300 hover:text-accent"
                 target="_blank"
+                onClick={onClick}
               >
                 {title}
+                <span className="pl-2">
+                  <BiLinkExternal />
+                </span>
               </Link>
             ) : (
               <h1 className="text-xl text-white">{title}</h1>
             )}
           </div>
-          <div
-            // style={{ backgroundColor: "#0d2447" }}
-            className="relative top-0 z-10 w-full rounded-md bg-primary/70 p-10 shadow-md shadow-black backdrop-blur-sm xl:h-max"
-          >
+          <div className="relative top-0 z-10 w-full rounded-md bg-primary/70 p-10 shadow-md shadow-black backdrop-blur-sm xl:h-max">
             <div>{description}</div>
           </div>
           <div className="w-3/4">
@@ -161,37 +165,66 @@ const CardProject = ({
             width={700}
             height={700}
           />
-          <div className="absolute left-0 top-0 h-full w-full rounded-md bg-black bg-opacity-50 md:hidden">
-            <div className="p-5">
-              <h4 className="text-sm text-accent">Featured Projects</h4>
-              {link !== null ? (
-                <Link
-                  href={link}
-                  className="text-xl text-white  transition-all duration-300 hover:text-accent"
-                  target="_blank"
-                >
-                  {title}
-                </Link>
-              ) : (
-                <h1 className="text-xl text-white">{title}</h1>
-              )}
-              <div className="flex flex-col justify-center">
-                <div>{description}</div>
-                <ul className="flex flex-wrap gap-2">
-                  {tech.map((item, indexTech) => (
-                    <li
-                      className="rounded-xl pr-3 text-sm font-light text-accent/90"
-                      key={indexTech}
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
+  );
+};
+
+const MobileCardProject = ({
+  title,
+  description,
+  image,
+  link,
+  tech,
+  index,
+  onClick,
+}: DataProjects) => {
+  return (
+    <motion.div
+      initial={{ y: 50 }}
+      whileInView={{ y: 0 }}
+      transition={{ duration: 0.5, type: "spring" }}
+      className="flex h-full flex-col items-center justify-center p-5"
+      key={index}
+    >
+      <div className="w-full rounded-md bg-black shadow-sm shadow-black">
+        <Image
+          className="h-full w-full rounded-md bg-cover shadow-lg shadow-black"
+          src={image}
+          alt={title}
+          width={700}
+          height={700}
+        />
+      </div>
+      <div className="mt-5 flex flex-col items-center justify-center gap-y-2">
+        {link !== null ? (
+          <Link
+            href={link}
+            className="flex items-center text-xl text-white transition-all duration-300 hover:text-accent"
+            target="_blank"
+            onClick={onClick}
+          >
+            {title}
+            <span className="pl-2">
+              <BiLinkExternal />
+            </span>
+          </Link>
+        ) : (
+          <h1 className="text-xl text-white">{title}</h1>
+        )}
+        <p className="text-center text-tertiary">{description}</p>
+        <ul className="flex flex-wrap justify-center gap-2">
+          {tech.map((items, indexTech) => (
+            <li
+              className="rounded-xl border-accent bg-accent/20 px-3 py-1 text-center text-sm text-accent"
+              key={indexTech}
+            >
+              {items}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
   );
 };

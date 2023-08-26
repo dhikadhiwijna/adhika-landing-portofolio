@@ -5,8 +5,25 @@ import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import Transition from "@/components/Transition";
 import NextNProgress from "nextjs-progressbar";
+import { logEvent } from "firebase/analytics";
+import { useEffect } from "react";
+import { useAnalytics } from "@/data/firebase-config";
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const analytics = useAnalytics();
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      logEvent(analytics, "page_view", { page_path: url });
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events, analytics]);
 
   return (
     <Layout>

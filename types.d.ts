@@ -27,4 +27,5 @@ interface DataProjects {
   image: string | StaticImageData;
   description: string;
   tech: string[];
+  onClick?: () => void;
 }

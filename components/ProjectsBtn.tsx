@@ -5,7 +5,7 @@ import { HiArrowRight } from "react-icons/hi";
 
 const ProjectsBtn = () => {
   return (
-    <div className="mx-auto xl:mx-0">
+    <div className="z-30 mx-auto xl:mx-0">
       <Link
         href={"/portfolio"}
         className="group relative flex h-[185px] w-[185px] items-center justify-center bg-circleStar bg-cover bg-center bg-no-repeat"

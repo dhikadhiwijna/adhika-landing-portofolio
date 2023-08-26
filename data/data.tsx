@@ -82,14 +82,14 @@ export const dataProjects = [
     image: imagePageAsset.ayovestPage,
     description:
       "A mobile application that helps the user to manage their investment portfolio and financial planning. This application also provides a feature to buy and sell mutual funds.",
-    tech: ["Flutter", "Bloc", "Dio", "Laravel"],
+    tech: ["Flutter", "Laravel", "MySQL"],
   },
   {
     title: "Funtravia",
     link: "https://funtravia.com/",
     image: imagePageAsset.funtraviaPage,
     description:
-      "A web application that provides travel services. Create itinerary, book hotels, buy tickets, and social media. The chat feature is also available to communicate with other users.",
+      "A mobile application that provides travel services. Create itinerary, book hotels, buy tickets, and social media.",
     tech: ["React Native", "Redux", "Laravel", "MySQL", "ExpressJS", "GraphQL"],
   },
   {

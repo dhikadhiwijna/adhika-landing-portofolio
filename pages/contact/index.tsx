@@ -47,7 +47,7 @@ const Contact = () => {
                   <input
                     type="email"
                     placeholder="Email"
-                    className="input lowercase"
+                    className="input"
                     name="email"
                     required
                   />
@@ -61,8 +61,8 @@ const Contact = () => {
                 />
                 <textarea
                   placeholder="Message"
-                  className="input h-40 lowercase"
-                  name="message"
+                  className="input h-40"
+                  name="Message"
                   rows={5}
                   required
                 ></textarea>
