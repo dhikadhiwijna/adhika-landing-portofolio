@@ -31,7 +31,7 @@ const Transition = () => {
         initial="initial"
         exit="exit"
         animate="animate"
-        transition={{ duration: 0.6, ease: "easeInOut" }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         className="fixed bottom-0 right-full top-0 z-30 h-screen w-screen bg-[#196b58]"
       />
 
@@ -40,7 +40,7 @@ const Transition = () => {
         initial="initial"
         exit="exit"
         animate="animate"
-        transition={{ delay: 0.2, duration: 0.6, ease: "easeInOut" }}
+        transition={{ delay: 0.2, duration: 0.4, ease: "easeInOut" }}
         className="fixed bottom-0 right-full top-0 z-20 h-screen w-screen bg-[#196b58]/60"
       />
 
@@ -49,7 +49,7 @@ const Transition = () => {
         initial="initial"
         exit="exit"
         animate="animate"
-        transition={{ delay: 0.4, duration: 0.6, ease: "easeInOut" }}
+        transition={{ delay: 0.4, duration: 0.4, ease: "easeInOut" }}
         className="fixed bottom-0 right-full top-0 z-10 h-screen w-screen bg-[#196b58]/90"
       />
     </>
